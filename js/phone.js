@@ -84,7 +84,7 @@ const PhoneDetails = slug => {
 //       <h2 class="card-title">${data.displaySize}</h2>
 //       <h2 class="card-title">${data.chipSet}</h2>
 //       <h2 class="card-title">${data.memory}</h2>
-//       <h2 class="card-title">${data.sensors}</h2>
+//       <h2 class="card-title">${data.sensors.}</h2>
 //       <h2 class="card-title">${data.slug}</h2>
 //       <h2 class="card-title">${data.others}</h2>
       
