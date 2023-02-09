@@ -2,21 +2,41 @@ const searchPhone = () => {
 
     const searchFiled = document.getElementById('search-filed');
     const searchText = searchFiled.value;
-    // console.log(searchText);
-    searchFiled.value = '';
 
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    // console.log(url);
+     //clear previous text
+     searchFiled.value = '';
 
-    fetch(url)
+     // alert from 
+    if(searchText == ''){
+        alert("pleace write something to Display !!");
+    }
+    else{
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+        fetch(url)
     .then(res => res.json())
     .then(dat => phoneSearchResult(dat.data));
 
+    }
+
+    //clear previous text
+    searchFiled.value = '';
+ 
 }
 
    const  phoneSearchResult = data => {
 
    const searchResult = document.getElementById('search-result');
+
+    //    clear previous data
+   searchResult.textContent='';
+
+
+    //    Alert Form Data
+   if (data.length == 0){
+    alert("show no Result Found this try again!!!");
+
+   }
+
     data.forEach(brand => {
         console.log(brand);
 
@@ -49,28 +69,28 @@ const PhoneDetails = slug => {
     .then(data => phoneAbout(data));
 
 }
-const  phoneAbout = Iphone => {
-    console.log(Iphone);
+// const  phoneAbout = Iphone => {
+//     console.log(Iphone);
 
-    const IphoneAboutDetalis = document.getElementById('iphone-about-detalis');
-    const div = document.createElement('div');
-    div.classList.add('card');
-    div innerHTML = `
-    <div class="card" style="width: 18rem;">
-    <img src="${brand.Apple.image}" class="card-img-top" alt="...">
-    <div class="card-body">
-    <h2 class="card-title">${data.name}</h2>
-      <h2 class="card-title">${data.mainFeatures}</h2>
-      <h2 class="card-title">${data.displaySize}</h2>
-      <h2 class="card-title">${data.chipSet}</h2>
-      <h2 class="card-title">${data.memory}</h2>
-      <h2 class="card-title">${data.sensors}</h2>
-      <h2 class="card-title">${data.slug}</h2>
-      <h2 class="card-title">${data.others}</h2>
+//     const IphoneAboutDetalis = document.getElementById('iphone-about-detalis');
+//     const div = document.createElement('div');
+//     div.classList.add('card');
+//     div innerHTML = `
+//     <div class="card" style="width: 18rem;">
+//     <img src="${brand.Apple.image}" class="card-img-top" alt="...">
+//     <div class="card-body">
+//     <h2 class="card-title">${data.name}</h2>
+//       <h2 class="card-title">${data.mainFeatures}</h2>
+//       <h2 class="card-title">${data.displaySize}</h2>
+//       <h2 class="card-title">${data.chipSet}</h2>
+//       <h2 class="card-title">${data.memory}</h2>
+//       <h2 class="card-title">${data.sensors}</h2>
+//       <h2 class="card-title">${data.slug}</h2>
+//       <h2 class="card-title">${data.others}</h2>
       
-    </div>
-  </div>
-    `;
-    IphoneAboutDetalis.appendChild(div);
+//     </div>
+//   </div>
+//     `;
+//     IphoneAboutDetalis.appendChild(div);
 
-}
+// }
